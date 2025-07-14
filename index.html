@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yusif's Baku GP Blog</title>
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Baku GP Styles - Euro 2024 inspired color burst */
+    body {
+      margin: 0;
+      font-family: 'Titillium Web', sans-serif;
+      background: linear-gradient(135deg, #0e0e0e, #1f1f1f);
+      color: #fdfdfd;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    header {
+      background: linear-gradient(90deg, #004aad, #00b4d8, #ff477e, #8338ec);
+      padding: 2.5rem 1rem;
+      text-align: center;
+      color: white;
+      animation: rainbowGlow 5s linear infinite;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin: 0;
+      animation: fadeInDown 1s ease-in-out;
+      background: linear-gradient(to right, #ffffff, #ffd700);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .subtitle {
+      font-size: 1.2rem;
+      color: #dcdcdc;
+      animation: fadeIn 2s ease-in-out;
+    }
+    main {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+      animation: zoomIn 1s ease-in-out;
+    }
+    .post h2, .post h3 {
+      color: #ff477e;
+      background: linear-gradient(to right, #ff477e, #00f5d4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: slideRight 1s ease-in-out;
+    }
+    ul {
+      padding-left: 1.5rem;
+    }
+    img {
+      width: 100%;
+      max-width: 700px;
+      margin: 1.5rem 0;
+      border-radius: 15px;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+      animation: slideUp 1s ease-out;
+    }
+    footer {
+      background: linear-gradient(90deg, #0f0f0f, #292929);
+      color: #ccc;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 2rem;
+      border-top: 2px solid #ff2058;
+      animation: fadeIn 2s ease-in;
+    }
+    footer a {
+      color: #ffd700;
+      text-decoration: none;
+    }
+
+    /* Animations */
+    .animate-fade {
+      animation: fadeIn 1s ease-in-out;
+    }
+    .animate-slide-up {
+      animation: slideUp 1s ease-out;
+    }
+    .animate-slide-left {
+      animation: slideLeft 1s ease-out;
+    }
+    .animate-slide-right {
+      animation: slideRight 1s ease-out;
+    }
+    .animate-fade-in {
+      animation: fadeIn 2s ease-in;
+    }
+    .animate-zoom {
+      animation: zoomIn 1.5s ease-in-out;
+    }
+    .animate-delay {
+      animation: fadeIn 3s ease-in;
+    }
+
+    /* Keyframes */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideUp {
+      from { transform: translateY(40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes slideLeft {
+      from { transform: translateX(-40px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    @keyframes slideRight {
+      from { transform: translateX(40px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    @keyframes rainbowGlow {
+      0% { box-shadow: 0 0 10px #004aad; }
+      25% { box-shadow: 0 0 10px #00b4d8; }
+      50% { box-shadow: 0 0 10px #ff477e; }
+      75% { box-shadow: 0 0 10px #8338ec; }
+      100% { box-shadow: 0 0 10px #004aad; }
+    }
+
+    /* Button styles */
+    .toggle-info {
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #ff2058, #ff7a00);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.3s ease;
+      user-select: none;
+    }
+    .toggle-info:hover {
+      background: linear-gradient(135deg, #e6003d, #ff477e);
+      transform: scale(1.05);
+    }
+
+    /* Extra content hidden by default */
+    .extra-content {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      color: #ffd700;
+      transition: max-height 0.5s ease, opacity 0.5s ease;
+      margin-top: 1rem;
+    }
+    .extra-content.expanded {
+      max-height: 500px; /* enough for content */
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🇦🇿 Baku GP — The Jewel of the Caspian</h1>
+    <p id="typewriter" class="subtitle"></p>
+  </header>
+
+  <main>
+    <article class="post animate-fade">
+      <h2 class="animate-slide-up">🏁 The Madness of Baku: Why We Love It</h2>
+      <p class="animate-delay">
+        Since joining the F1 calendar in 2016, the Baku City Circuit has built a reputation for unpredictability. Located in the heart of Azerbaijan's capital, the 6.003 km street circuit combines ultra-fast straights with tight castle section corners — a recipe for chaos.
+      </p>
+
+      <h3 class="animate-slide-left">📍 Track Overview</h3>
+      <ul class="animate-fade-in">
+        <li>Length: 6.003 km (3.73 mi)</li>
+        <li>Turns: 20 (mostly 90° corners)</li>
+        <li>Top speed: ~360 km/h (fastest on the calendar)</li>
+        <li>Famous section: Turn 8, the narrow castle section</li>
+      </ul>
+
+      <img src="https://media.formula1.com/image/upload/c_lfill,w_3392/q_auto/v1740000000/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Baku_Circuit.webp" alt="Baku Circuit layout" class="animate-zoom" />
+
+      <h3 class="animate-slide-right">📅 Race Highlights Over the Years</h3>
+      <p><strong>2017:</strong> The infamous Vettel vs Hamilton clash behind the Safety Car. Ricciardo wins from P10.</p>
+      <p><strong>2018:</strong> Red Bull teammates Verstappen and Ricciardo collide. Bottas gets a puncture on the final lap.</p>
+      <p><strong>2021:</strong> Verstappen crashes due to tyre failure. Hamilton goes off at Turn 1 in the restart. Perez wins.</p>
+      <p><strong>2023:</strong> First-ever Sprint weekend in Baku. Leclerc takes pole in both Quali and Sprint Shootout.</p>
+
+      <h3 class="animate-slide-left">🔧 Setup & Strategy</h3>
+      <p>
+        Teams face a tough compromise between low downforce for the straights and grip for the twisty sector 2. Brake cooling and tyre degradation are critical. Most wins come from bold strategy calls or simply surviving the chaos.
+      </p>
+
+      <h3 class="animate-slide-up">🚨 Why Baku is a Fan Favorite</h3>
+      <ul class="animate-fade-in">
+        <li>Multiple Safety Cars almost guaranteed</li>
+        <li>Unlikely podiums & surprise winners</li>
+        <li>Stunning city backdrop & night shots</li>
+        <li>Drama nearly every year</li>
+      </ul>
+
+      <h3 class="animate-zoom">💬 Yusif’s Take</h3>
+      <p>
+        Baku is like Monaco with teeth. It punishes mistakes harshly but rewards brave overtakes. I’ve never seen a boring Baku GP — there’s always a twist.
+      </p>
+
+      <!-- Hidden extra content -->
+      <p class="extra-content">
+        Beyond the chaos and speed, Baku's unique blend of modern cityscape and ancient architecture gives it an unmatched atmosphere. The narrow castle section demands precision, while the long straights allow for heart-stopping DRS battles. Pit stop timing can make or break your race, making Baku a tactical masterpiece as much as a driver’s challenge.
+      </p>
+      <button class="toggle-info">Read More ▼</button>
+    </article>
+  </main>
+
+  <footer>
+    <p>Written by Josef © 2025</p>
+  </footer>
+
+  <script>
+    // Typewriter Effect for Intro
+    const typewriterText = "Everything you need to know about the Baku Grand Prix 🇦🇿";
+    const typewriterTarget = document.getElementById("typewriter");
+    let index = 0;
+
+    function typeEffect() {
+      if (index < typewriterText.length) {
+        typewriterTarget.innerHTML += typewriterText.charAt(index);
+        index++;
+        setTimeout(typeEffect, 40);
+      }
+    }
+    window.addEventListener("load", typeEffect);
+
+    // Toggle More Info in Blog Cards
+    const toggleButtons = document.querySelectorAll(".toggle-info");
+
+    toggleButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const content = button.previousElementSibling;
+        content.classList.toggle("expanded");
+        button.textContent = content.classList.contains("expanded") ? "Show Less ▲" : "Read More ▼";
+      });
+    });
+
+    // Sticky Header Effect
+    const header = document.querySelector("header");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 30) {
+        header.style.background = "linear-gradient(90deg, #8338ec, #ff477e, #00b4d8)";
+        header.style.boxShadow = "0 2px 10px rgba(255, 71, 126, 0.8)";
+      } else {
+        header.style.background = "linear-gradient(90deg, #004aad, #00b4d8, #ff477e, #8338ec)";
+        header.style.boxShadow = "none";
+      }
+    });
+  </script>
+</body>
+</html>
